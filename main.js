@@ -21,6 +21,13 @@ app.get('/api/houses', async (req, res) => {
     res.json(houses);
 });
 
+
+app.get('/api/houses/:id', async (req, res) => {
+    const requestedId = req.params.id;
+    const requestedHouse = await House.findAll({where: {id: requestedId}});
+    res.json(requestedHouse);
+});
+
 app.post('/api/houses', async (req, res, next) => {
     const houseToInsert = req.body;
     try {
