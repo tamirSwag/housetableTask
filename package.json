@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node ./main.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.32.0",
+    "sqlite3": "^5.1.6"
+  }
+}
