@@ -17,6 +17,7 @@
 
 import express from 'express';
 import { Sequelize, DataTypes } from 'sequelize';
+const PORT = 8080;
 
 
 const House = defineSequelizeHouseModel();
@@ -49,10 +50,9 @@ app.post('/api/houses', async (req, res) => {
     res.json(req.body)
 })
 
-const port = 8080;
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
+});
 
 
 function defineSequelizeHouseModel() {
