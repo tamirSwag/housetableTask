@@ -1,17 +1,28 @@
 import express from 'express';
+import cors from 'cors';
 import { Sequelize, DataTypes } from 'sequelize';
 const UNIQUE_ERROR_NAME = "SequelizeUniqueConstraintError";
 const PORT = 8080;
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 const House = defineSequelizeHouseModel();
 House.sync();
 
-var app = express()
+
+// Express:
+const app = express()
+
+app.use(cors(corsOptions));
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+
+// Routes:
 app.get('/api/ok', (req, res) => {
     res.send("Yo!")
 });
