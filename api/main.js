@@ -60,35 +60,26 @@ app.put('/api/houses/:id', async (req, res) => {
     res.status(200).send(`House ${houseIdToUpdate} updated successfully!`);
 });
 
-app.post('/api/houses', async (req, res, next) => {
+app.post('/api/houses', async (req, res) => {
     const houseToInsert = req.body;
-    try {
-        await House.create({
-            id: houseToInsert.id,
-            address: houseToInsert.address,
-            currentValue: houseToInsert.currentValue,
-            loanAmount: houseToInsert.loanAmount,
-            risk: houseToInsert.risk,
-        });
-    } catch (error) {
-        if (error.name === UNIQUE_ERROR_NAME) {
-            return res.status(500).send(`Can't create object with id ${houseToInsert.id} since it already exists.`);
-        } else {
-            next(error);
-        }
-    }
-    res.status(200).send(`House ${houseToInsert.id} created successfully!`);
+    const newHouse = await House.create({
+        address: houseToInsert.address,
+        currentValue: houseToInsert.currentValue,
+        loanAmount: houseToInsert.loanAmount,
+        risk: houseToInsert.risk,
+    });
+    res.status(200).send(`House ${newHouse.id} created successfully!`);
 });
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`)
+    console.log(`App listening on port ${PORT}`)
 });
 
 
 function defineSequelizeHouseModel() {
     const sequelize = new Sequelize('sqlite::memory:');
     return sequelize.define('House', {
-        id: { type: DataTypes.INTEGER, primaryKey: true },
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         address: DataTypes.STRING,
         currentValue: DataTypes.FLOAT,
         loanAmount: DataTypes.FLOAT,
