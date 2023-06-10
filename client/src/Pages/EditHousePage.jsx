@@ -37,7 +37,7 @@ function EditHousePage() {
 
     return (
         <div className="m-2">
-            <Link to={`/`} className="btn btn-secondary btn-sm">Go to home page</Link>
+            <Link to={`/`} className="btn btn-secondary btn-sm">Go to home page (without saving!)</Link>
             <h3>Change the details of your house:</h3>
             <HouseEditForm handleSubmit={handleSubmit} submitBtnText="Submit edit" initialHouse={houseDetails} />
         </div>
