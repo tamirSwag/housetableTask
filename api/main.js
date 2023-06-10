@@ -5,8 +5,8 @@ const UNIQUE_ERROR_NAME = "SequelizeUniqueConstraintError";
 const PORT = 8080;
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
 const House = defineSequelizeHouseModel();
@@ -53,7 +53,7 @@ app.put('/api/houses/:id', async (req, res) => {
         },
         {
             where: {
-                id: houseIdToUpdate 
+                id: houseIdToUpdate
             }
         }
     );
@@ -68,7 +68,7 @@ app.post('/api/houses', async (req, res) => {
         loanAmount: houseToInsert.loanAmount,
         risk: houseToInsert.risk,
     });
-    res.status(200).send(`House ${newHouse.id} created successfully!`);
+    res.status(200).send({ newHouseId: newHouse.id });
 });
 
 app.listen(PORT, () => {

@@ -1,20 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const API_BASE_URL = "http://localhost:8080/api";
 
 function NewHouseFormPage() {
+    const [newHouseId, setNewHouseId] = useState();
     // TODO: Check for react component order conventions
 
-    function handleSubmit(submitEvent) {
+    async function handleSubmit(submitEvent) {
         submitEvent.preventDefault(); // Prevent the browser from reloading the page
 
         const formJson = extrectFormDataAsJson(submitEvent.target);
 
-        fetch(`${API_BASE_URL}/houses`, {
+        const response = await fetch(`${API_BASE_URL}/houses`, {
             method: 'post',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formJson)
         });
+        
+        // TODO: add error handling
+
+        const jsonData = await response.json();
+        setNewHouseId(jsonData.newHouseId);
     }
 
     function extrectFormDataAsJson(form) {
@@ -24,28 +31,37 @@ function NewHouseFormPage() {
     }
 
     return (
-        <>
-            <Link to={`/`} className="btn btn-secondary btn-sm">What? I don't want to create a house...</Link>
-            <form onSubmit={handleSubmit} className="m-2">
-                <h3>Enter the details of your house:</h3>
+        <div className="m-2">
+            {newHouseId ?
                 <div>
-                    <label className="form-label">House full address:
-                        <input type="text" name="address" className="form-control" />
-                    </label>
-                </div>
+                    <h3>Thank's!</h3>
+                    <p>House was created successfully with the id <Link to={`/house-details`} className="badge bg-info">{newHouseId}</Link> - click it for the house page :)</p>
+                    Or, <Link to={`/`} className="btn btn-secondary btn-sm">go back to home page</Link>
+                </div> :
                 <div>
-                    <label className="form-label">House current value:
-                        <input type="number" name="currentValue" className="form-control" />
-                    </label>
+                    <Link to={`/`} className="btn btn-secondary btn-sm">What? I don't want to create a house...</Link>
+                    <form onSubmit={handleSubmit}>
+                        <h3>Enter the details of your house:</h3>
+                        <div>
+                            <label className="form-label">House full address:
+                                <input type="text" name="address" className="form-control" />
+                            </label>
+                        </div>
+                        <div>
+                            <label className="form-label">House current value:
+                                <input type="number" name="currentValue" className="form-control" />
+                            </label>
+                        </div>
+                        <div>
+                            <label className="form-label">House loan amount:
+                                <input type="number" name="loanAmount" className="form-control" />
+                            </label>
+                        </div>
+                        <button type='submit' className="btn btn-primary">Create house</button>
+                    </form>
                 </div>
-                <div>
-                    <label className="form-label">House loan amount:
-                        <input type="number" name="loanAmount" className="form-control" />
-                    </label>
-                </div>
-                <button type='submit' className="btn btn-primary">Create house</button>
-            </form>
-        </>
+            }
+        </div>
     );
 
 }
