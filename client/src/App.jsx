@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-      <Link to={`new-house`}>New House</Link>
+      <h1>Welcome to Tamir's Housetable Task!</h1>
+      <Link to={`/new-house`}>New House</Link>
     </>
   );
 
