@@ -16,6 +16,7 @@ function HouseDetailsPage() {
             <Link to={`/`} className="btn btn-secondary btn-sm">Go to home page</Link>
             <div className="mb-3">
                 <h3>House details:</h3>
+                <div>Id: {houseDetails.id}</div>
                 <div>Address: {houseDetails.address}</div>
                 <div>Current Value: {houseDetails.currentValue}</div>
                 <div>Loan Amount: {houseDetails.loanAmount}</div>
