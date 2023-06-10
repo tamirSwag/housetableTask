@@ -5,8 +5,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
-import NewHouseFormPage from './NewHouseFormPage/NewHouseFormPage';
-import HouseDetailsPage, { loader as HouseDetailsPageLoader } from './HouseDetailsPage/HouseDetailsPage';
+import NewHousePage from './Pages/NewHousePage';
+import HouseDetailsPage, { loader as HouseDetailsPageLoader } from './Pages/HouseDetailsPage';
+import EditHousePage, { loader as EditHousePageLoader } from './Pages/EditHousePage';
 import ErrorPage from './ErrorPage';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,12 +21,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/new-house",
-    element: <NewHouseFormPage />,
+    element: <NewHousePage />,
   },
   {
     path: "/house-details/:houseId",
     element: <HouseDetailsPage />,
     loader: HouseDetailsPageLoader,
+  },
+  {
+    path: "/edit-house/:houseId",
+    element: <EditHousePage />,
+    loader: EditHousePageLoader,
   },
 ]);
 

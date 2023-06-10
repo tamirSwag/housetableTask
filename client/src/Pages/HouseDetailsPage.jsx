@@ -14,10 +14,14 @@ function HouseDetailsPage() {
 
     return (
         <div className="m-2">
-            <h3>House details:</h3>
-            <div>Address: {houseDetails.address}</div>
-            <div>Current Value: {houseDetails.currentValue}</div>
-            <div>Loan Amount: {houseDetails.loanAmount}</div>
+            <Link to={`/`} className="btn btn-secondary btn-sm">Go to home page</Link>
+            <div className="mb-3">
+                <h3>House details:</h3>
+                <div>Address: {houseDetails.address}</div>
+                <div>Current Value: {houseDetails.currentValue}</div>
+                <div>Loan Amount: {houseDetails.loanAmount}</div>
+            </div>
+            <Link to={`/edit-house/${houseDetails.id}`} className="btn btn-primary btn-sm">Edit</Link>
         </div>
     );
 

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../constants";
+import HouseEditForm from "../Components/HouseEditForm";
 
-function NewHouseFormPage() {
+function NewHousePage() {
     const [newHouseId, setNewHouseId] = useState();
     // TODO: Check for react component order conventions
 
@@ -39,25 +40,8 @@ function NewHouseFormPage() {
                 </div> :
                 <div>
                     <Link to={`/`} className="btn btn-secondary btn-sm">What? I don't want to create a house...</Link>
-                    <form onSubmit={handleSubmit}>
-                        <h3>Enter the details of your house:</h3>
-                        <div>
-                            <label className="form-label">House full address:
-                                <input type="text" name="address" className="form-control" />
-                            </label>
-                        </div>
-                        <div>
-                            <label className="form-label">House current value:
-                                <input type="number" name="currentValue" className="form-control" />
-                            </label>
-                        </div>
-                        <div>
-                            <label className="form-label">House loan amount:
-                                <input type="number" name="loanAmount" className="form-control" />
-                            </label>
-                        </div>
-                        <button type='submit' className="btn btn-primary">Create house</button>
-                    </form>
+                    <h3>Enter the details of your house:</h3>
+                    <HouseEditForm handleSubmit={handleSubmit} submitBtnText="Create house" />
                 </div>
             }
         </div>
@@ -65,4 +49,4 @@ function NewHouseFormPage() {
 
 }
 
-export default NewHouseFormPage;
+export default NewHousePage;
