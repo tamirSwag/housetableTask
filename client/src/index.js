@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import App from './App';
+import HomePage from './HomePage';
 import NewHousePage from './Pages/NewHousePage';
 import HouseDetailsPage, { loader as HouseDetailsPageLoader } from './Pages/HouseDetailsPage';
 import EditHousePage, { loader as EditHousePageLoader } from './Pages/EditHousePage';
@@ -16,7 +16,7 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {

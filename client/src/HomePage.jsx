@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 
-import './App.css';
 import HousesList from "./Components/HousesList";
 
-function App() {
+function HomePage() {
 
   return (
     <>
@@ -15,4 +14,4 @@ function App() {
 
 }
 
-export default App;
+export default HomePage;
