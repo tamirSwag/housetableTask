@@ -25,7 +25,7 @@ function NewHouseFormPage() {
 
     return (
         <>
-            <Link to={`/`}>What? I don't want to create a house...</Link>
+            <Link to={`/`} className="btn btn-secondary btn-sm">What? I don't want to create a house...</Link>
             <form onSubmit={handleSubmit} className="m-2">
                 <h3>Enter the details of your house:</h3>
                 <div>
