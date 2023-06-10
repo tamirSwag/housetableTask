@@ -35,7 +35,7 @@ app.get('/api/houses', async (req, res) => {
 
 app.get('/api/houses/:id', async (req, res) => {
     const requestedHouseId = req.params.id;
-    const requestedHouse = await House.findAll({ where: { id: requestedHouseId } });
+    const requestedHouse = (await House.findAll({ where: { id: requestedHouseId } }))[0];
     res.json(requestedHouse);
 });
 

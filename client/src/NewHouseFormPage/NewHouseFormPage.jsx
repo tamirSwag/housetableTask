@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-const API_BASE_URL = "http://localhost:8080/api";
+import { API_BASE_URL } from "../constants";
 
 function NewHouseFormPage() {
     const [newHouseId, setNewHouseId] = useState();
@@ -35,7 +34,7 @@ function NewHouseFormPage() {
             {newHouseId ?
                 <div>
                     <h3>Thank's!</h3>
-                    <p>House was created successfully with the id <Link to={`/house-details`} className="badge bg-info">{newHouseId}</Link> - click it for the house page :)</p>
+                    <p>House was created successfully with the id <Link to={`/house-details/${newHouseId}`} className="badge bg-info">{newHouseId}</Link> - click it for the house page :)</p>
                     Or, <Link to={`/`} className="btn btn-secondary btn-sm">go back to home page</Link>
                 </div> :
                 <div>
