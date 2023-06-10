@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 
 import './App.css';
+import HousesList from "./Components/HousesList";
 
 function App() {
 
   return (
     <>
       <h1>Welcome to Tamir's Housetable Task!</h1>
+      <HousesList />
       <Link to={`/new-house`} className="btn btn-primary btn-sm">New House</Link>
     </>
   );
