@@ -8,12 +8,12 @@ function HouseEditForm({handleSubmit, submitBtnText, initialHouse = {}}) {
             </div>
             <div>
                 <label className="form-label">House current value:
-                    <input type="number" name="currentValue" defaultValue={initialHouse.currentValue} className="form-control" />
+                    <input type="number" step="any" name="currentValue" defaultValue={initialHouse.currentValue} className="form-control" />
                 </label>
             </div>
             <div>
                 <label className="form-label">House loan amount:
-                    <input type="number" name="loanAmount" defaultValue={initialHouse.loanAmount} className="form-control" />
+                    <input type="number" step="any" name="loanAmount" defaultValue={initialHouse.loanAmount} className="form-control" />
                 </label>
             </div>
             <button type='submit' className="btn btn-primary">{submitBtnText}</button>
