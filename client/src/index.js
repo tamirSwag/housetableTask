@@ -4,10 +4,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { HouseDetailsLoader } from "./RoutesLoaders";
 import HomePage from './HomePage';
 import NewHousePage from './Pages/NewHousePage';
-import HouseDetailsPage, { loader as HouseDetailsPageLoader } from './Pages/HouseDetailsPage';
-import EditHousePage, { loader as EditHousePageLoader } from './Pages/EditHousePage';
+import HouseDetailsPage from './Pages/HouseDetailsPage';
+import EditHousePage from './Pages/EditHousePage';
+import HouseNotFoundPage from './Pages/HouseNotFoundPage';
 import ErrorPage from './ErrorPage';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,16 +24,24 @@ const router = createBrowserRouter([
   {
     path: "/new-house",
     element: <NewHousePage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/house-details/:houseId",
     element: <HouseDetailsPage />,
-    loader: HouseDetailsPageLoader,
+    loader: HouseDetailsLoader,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/edit-house/:houseId",
     element: <EditHousePage />,
-    loader: EditHousePageLoader,
+    loader: HouseDetailsLoader,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/house-not-found",
+    element: <HouseNotFoundPage />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

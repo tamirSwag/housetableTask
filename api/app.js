@@ -24,8 +24,13 @@ app.get('/api/houses', async (req, res) => {
 });
 app.get('/api/houses/:id', async (req, res) => {
     const requestedHouseId = req.params.id;
-    const requestedHouse = (await House.findAll({ where: { id: requestedHouseId } }))[0];
-    res.json(requestedHouse);
+    const requestedHouseArray = await House.findAll({ where: { id: requestedHouseId } });
+    if (!requestedHouseArray.length) {
+        res.status(404).send("House doesn't exists.");
+    } else {
+        const requestedHouse = requestedHouseArray[0];
+        res.json(requestedHouse);
+    }
 });
 app.post('/api/houses', async (req, res) => {
     const houseToInsert = req.body;
@@ -39,7 +44,6 @@ app.post('/api/houses', async (req, res) => {
     res.status(200).send({ newHouseId: newHouse.id });
 });
 app.put('/api/houses/:id', async (req, res) => {
-    // TODO: What if the house doesn't exist?
     const houseIdToUpdate = req.params.id;
     const houseToUpdate = req.body;
     const calculatedRisk = CalculateRisk(houseToUpdate.currentValue, houseToUpdate.loanAmount);

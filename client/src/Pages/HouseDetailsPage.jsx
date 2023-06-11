@@ -1,12 +1,4 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { API_BASE_URL } from "../constants";
-
-export async function loader({ params }) {
-    const houseId = params.houseId;
-    const response = await fetch(`${API_BASE_URL}/houses/${houseId}`);
-    const houseDetails = await response.json();
-    return houseDetails;
-}
 
 function HouseDetailsPage() {
     const houseDetails = useLoaderData();
