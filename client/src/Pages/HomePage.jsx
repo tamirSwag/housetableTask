@@ -6,6 +6,7 @@ function HomePage() {
 
   return (
     <>
+      <div className="cover-image"></div>
       <h1>Welcome to Tamir's Housetable Task!</h1>
       <HousesList />
       <Link to={`/new-house`} className="btn btn-primary btn-sm">New House</Link>

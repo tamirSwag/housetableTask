@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.cover-image {
+  background-image: url('https://images.freeimages.com/images/large-previews/3a2/house-in-colmar-1640603.jpg');
+  width: 100%;
+  height: 300px;
+}
