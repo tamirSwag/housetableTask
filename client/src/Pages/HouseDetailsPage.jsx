@@ -20,6 +20,7 @@ function HouseDetailsPage() {
                 <div>Address: {houseDetails.address}</div>
                 <div>Current Value: {houseDetails.currentValue}</div>
                 <div>Loan Amount: {houseDetails.loanAmount}</div>
+                <div>Risk: {houseDetails.risk}</div>
             </div>
             <Link to={`/edit-house/${houseDetails.id}`} className="btn btn-primary btn-sm">Edit</Link>
         </div>
