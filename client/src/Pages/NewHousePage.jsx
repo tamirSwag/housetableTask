@@ -17,11 +17,12 @@ function NewHousePage() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formJson)
         });
-        
-        // TODO: add error handling
 
-        const jsonData = await response.json();
-        setNewHouseId(jsonData.newHouseId);
+        if (response.status == 200) {
+            const jsonData = await response.json();
+            setNewHouseId(jsonData.newHouseId);
+        }
+        else throw new Error(JSON.stringify(response));
     }
 
     function extrectFormDataAsJson(form) {

@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../constants";
 import HouseEditForm from "../Components/HouseEditForm";
 
@@ -16,10 +16,9 @@ function EditHousePage() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formJson)
         });
-        
-        // TODO: add error handling
 
-        navigate(`/house-details/${houseDetails.id}`);
+        if (response.status == 200) navigate(`/house-details/${houseDetails.id}`);
+        else throw new Error(JSON.stringify(response));
     }
 
     function extrectFormDataAsJson(form) {

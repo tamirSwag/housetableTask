@@ -5,7 +5,7 @@ function HouseDetailsPage() {
 
     return (
         <div className="m-2">
-            <Link to={`/`} className="btn btn-secondary btn-sm">Go to home page</Link>
+            <Link to={`/`} className="btn btn-secondary btn-sm mb-4">Go to home page</Link>
             <div className="mb-3">
                 <h3>House details:</h3>
                 <div>Id: {houseDetails.id}</div>
