@@ -5,12 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { HouseDetailsLoader } from "./RoutesLoaders";
-import HomePage from './HomePage';
+import HomePage from './Pages/HomePage';
 import NewHousePage from './Pages/NewHousePage';
 import HouseDetailsPage from './Pages/HouseDetailsPage';
 import EditHousePage from './Pages/EditHousePage';
-import HouseNotFoundPage from './Pages/HouseNotFoundPage';
-import ErrorPage from './ErrorPage';
+import HouseNotFoundPage from './Pages/ErrorPages/HouseNotFoundErrorPage';
+import ErrorPage from './Pages/ErrorPages/GenericErrorPage';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';

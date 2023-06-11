@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import HousesList from "./Components/HousesList";
+import HousesList from "../Components/HousesList";
 
 function HomePage() {
 
