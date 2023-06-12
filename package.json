@@ -1,0 +1,9 @@
+{
+  "name": "housetable-full-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start-api": "cd api && npm start",
+    "start-client": "cd client && npm start"
+  }
+}
