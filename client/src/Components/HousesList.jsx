@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { API_BASE_URL } from "../constants";
 
-async function fetchHouses() {
-    const response = await fetch(`${API_BASE_URL}/houses`);
-    const houses = await response.json();
-    return houses;
-}
-
 function HousesList() {
     const [houses, setHouses] = useState([]);
     useEffect(() => {
@@ -15,6 +9,12 @@ function HousesList() {
             setHouses(houses);
         });
     }, []);
+    
+    async function fetchHouses() {
+        const response = await fetch(`${API_BASE_URL}/houses`);
+        const houses = await response.json();
+        return houses;
+    }
 
     return (
         <div className="my-3 me-5">

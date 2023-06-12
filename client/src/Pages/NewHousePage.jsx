@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../constants";
+import { extrectFormDataAsJson } from "../utils";
 import HouseEditForm from "../Components/HouseEditForm";
 
 function NewHousePage() {
     const [newHouseId, setNewHouseId] = useState();
-    // TODO: Check for react component order conventions
 
     async function handleSubmit(submitEvent) {
         submitEvent.preventDefault(); // Prevent the browser from reloading the page
@@ -23,12 +23,6 @@ function NewHousePage() {
             setNewHouseId(jsonData.newHouseId);
         }
         else throw new Error(JSON.stringify(response));
-    }
-
-    function extrectFormDataAsJson(form) {
-        const formData = new FormData(form);
-        const formJson = Object.fromEntries(formData.entries());
-        return formJson;
     }
 
     return (

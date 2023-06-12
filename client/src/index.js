@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
+
 import { HouseDetailsLoader } from "./RoutesLoaders";
 import HomePage from './Pages/HomePage';
 import NewHousePage from './Pages/NewHousePage';
